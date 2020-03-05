@@ -39,7 +39,7 @@ Using Z3str4 to solve the string constraint `x0 = x1x2` and `x0 = solution` is a
 (declare-fun x0 () String)
 (declare-fun x1 () String)
 (declare-fun x2 () String)
-(assert (= x0 (Concat x1 x2)))
+(assert (= x0 (str.++ x1 x2)))
 (assert (= x0 "solution"))
 (check-sat)
 ----

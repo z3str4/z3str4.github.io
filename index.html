@@ -533,7 +533,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 (declare-fun x0 () String)
 (declare-fun x1 () String)
 (declare-fun x2 () String)
-(assert (= x0 (Concat x1 x2)))
+(assert (= x0 (str.++ x1 x2)))
 (assert (= x0 "solution"))
 (check-sat)</pre>
 </div>
@@ -732,7 +732,7 @@ This benchmark tool was tested on Python 3.7.6.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-03-05 17:20:27 +0100
+Last updated 2020-03-05 17:38:45 +0100
 </div>
 </div>
 <script type="text/x-mathjax-config">
