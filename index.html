@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_using_the_z3str4">Using the Z3str4</a>
+<li><a href="#_z3str4_string_solver">Z3str4 String Solver</a>
 <ul class="sectlevel2">
 <li><a href="#_compiling_z3str4">Compiling Z3str4</a></li>
 <li><a href="#_running_z3str4">Running Z3str4:</a></li>
@@ -454,9 +454,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_trying_the_different_features_of_z3str4">Trying the different features of Z3str4</a></li>
 </ul>
 </li>
+<li><a href="#_competing_string_solvers">Competing string solvers</a>
+<ul class="sectlevel2">
+<li><a href="#_z3_sequence_solver">Z3 Sequence Solver</a></li>
+<li><a href="#_z3str3_string_solver">Z3Str3 String Solver</a></li>
+<li><a href="#_cvc4_string_solver">CVC4 String Solver</a></li>
+<li><a href="#_availability">Availability</a></li>
+</ul>
+</li>
 <li><a href="#_benchmarks">Benchmarks</a>
 <ul class="sectlevel2">
-<li><a href="#_competing_string_solvers">Competing string solvers</a></li>
 <li><a href="#_running_the_benchmarks">Running the Benchmarks</a></li>
 <li><a href="#_a_detailed_view_on_the_benchmarks">A detailed view on the benchmarks</a></li>
 </ul>
@@ -473,7 +480,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_using_the_z3str4">Using the Z3str4</h2>
+<h2 id="_z3str4_string_solver">Z3str4 String Solver</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This website walks you through the basics of our new string solver Z3str4. We share the following components presented in our corresponding paper:</p>
@@ -627,30 +634,44 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_benchmarks">Benchmarks</h2>
+<h2 id="_competing_string_solvers">Competing string solvers</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_competing_string_solvers">Competing string solvers</h3>
 <div class="paragraph">
 <p>As describe in the corresponding paper we are comparing our approach against <a href="https://github.com/Z3Prover/z3">Z3Seq</a>, <a href="https://sites.google.com/site/z3strsolver/">Z3Str3</a>, and <a href="https://cvc4.github.io">CVC4</a>.</p>
 </div>
+<div class="sect2">
+<h3 id="_z3_sequence_solver">Z3 Sequence Solver</h3>
 <div class="paragraph">
 <p>The Z3 theorem prover  is a DPLL(T)-based SMT solver for theory combinations
 over first-order logic. Z3 includes an arithmetic solver for linear integer arithmetic
 and a sequence solver (Z3Seq) that supports word-based reasoning about strings.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_z3str3_string_solver">Z3Str3 String Solver</h3>
 <div class="paragraph">
 <p>The Z3str3 solver is based on Z3. It uses a reduction known as the arrangement technique to convert word equations into simpler
 formulas until a "solved form" is reached.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_cvc4_string_solver">CVC4 String Solver</h3>
 <div class="paragraph">
 <p>The CVC4 solver handles constraints over the theory of strings and arithmetic
 using an algebraic approach, and uses a similar DPLL(T) architecture to Z3.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_availability">Availability</h3>
 <div class="paragraph">
 <p>Within the comparison we used CVC4&#8217;s binary version 1.7 which is available at <a href="https://github.com/CVC4/CVC4/releases/download/1.7/cvc4-1.7-x86_64-linux-opt">here</a>. The sequence solver and Z3str3 were pulled from their official <a href="https://github.com/Z3Prover/z3">GIT repository</a>. To reproduce our results you have to compile the commit <a href="https://github.com/Z3Prover/z3/commit/153d0661fe65247d0004bd4577ca851848ca4729">#153d0661fe65247d0004bd4577ca851848ca4729</a> using the same steps as described above for Z3str4.</p>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_benchmarks">Benchmarks</h2>
+<div class="sectionbody">
 <div class="sect2">
 <h3 id="_running_the_benchmarks">Running the Benchmarks</h3>
 <div class="admonitionblock warning">
@@ -732,7 +753,7 @@ This benchmark tool was tested on Python 3.7.6.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-03-05 17:38:45 +0100
+Last updated 2020-03-05 18:00:00 +0100
 </div>
 </div>
 <script type="text/x-mathjax-config">

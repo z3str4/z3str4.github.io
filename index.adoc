@@ -5,7 +5,7 @@ A Multi-armed String Solver
 
 We present a set of novel algorithms and optimization heuristics  implemented as part of a new solver, we call Z3str4, for a rich quantifier-free first-order theory of string equations, related functions (e.g., concat and replace) and predicates (e.g., contains), linear arithmetic over string lengths, and (in)equalities over integers. The key insights underlying our solver are threefold. First, we present a novel length abstraction solver that performs a linear arithmetic abstraction of string formulas (in a CEGAR-style loop), and refines as necessary. Second, we present another novel CDCL(T)-style algorithm that combines length abstraction and a bit-vector model construction method with the previously known arrangement technique for solving string formulas. Third, we present the algorithm selection architecture of Z3str4 which leverages four different solvers (arms), namely, the above-mentioned length abstraction solver, two versions of the above-mentioned arrangement solver, and the Z3 sequence solver. We perform extensive empirical evaluation over 16 different industrial and randomly-generated benchmarks with over 60,000 instances in them, and show Z3str4 outperforms previous best solvers, namely, CVC4, Z3 sequence solver, and the baseline Z3str3 on 13 of the 16 benchmarks. On the basis of total runtime over all 16 benchmarks, Z3str4 is competitive with CVC4 and significantly better than Z3 sequence and baseline Z3str3 solvers.
 
-== Using the Z3str4
+== Z3str4 String Solver
 This website walks you through the basics of our new string solver Z3str4. We share the following components presented in our corresponding paper:
 
 1. Source code
@@ -107,24 +107,29 @@ str.share_constraints (bool)
 
 Enable constraint sharing across tactics (Z3str3 only, has no effect outside of portfolio tactic) (default: true)
 
-== Benchmarks
-
-=== Competing string solvers
+== Competing string solvers
 
 As describe in the corresponding paper we are comparing our approach against https://github.com/Z3Prover/z3[Z3Seq], https://sites.google.com/site/z3strsolver/[Z3Str3], and https://cvc4.github.io[CVC4].
 
+=== Z3 Sequence Solver
 The Z3 theorem prover  is a DPLL(T)-based SMT solver for theory combinations
 over first-order logic. Z3 includes an arithmetic solver for linear integer arithmetic
 and a sequence solver (Z3Seq) that supports word-based reasoning about strings.
 
+=== Z3Str3 String Solver
 The Z3str3 solver is based on Z3. It uses a reduction known as the arrangement technique to convert word equations into simpler
 formulas until a "solved form" is reached. 
 
+=== CVC4 String Solver
 The CVC4 solver handles constraints over the theory of strings and arithmetic
 using an algebraic approach, and uses a similar DPLL(T) architecture to Z3.
 
+=== Availability
 Within the comparison we used CVC4's binary version 1.7 which is available at https://github.com/CVC4/CVC4/releases/download/1.7/cvc4-1.7-x86_64-linux-opt[here]. The sequence solver and Z3str3 were pulled from their official https://github.com/Z3Prover/z3[GIT repository]. To reproduce our results you have to compile the commit https://github.com/Z3Prover/z3/commit/153d0661fe65247d0004bd4577ca851848ca4729[#153d0661fe65247d0004bd4577ca851848ca4729] using the same steps as described above for Z3str4.
 
+
+
+== Benchmarks
 === Running the Benchmarks
 
 [WARNING]
