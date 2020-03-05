@@ -6,13 +6,11 @@ A Multi-armed String Solver
 We present a set of novel algorithms and optimization heuristics  implemented as part of a new solver, we call Z3str4, for a rich quantifier-free first-order theory of string equations, related functions (e.g., concat and replace) and predicates (e.g., contains), linear arithmetic over string lengths, and (in)equalities over integers. The key insights underlying our solver are threefold. First, we present a novel length abstraction solver that performs a linear arithmetic abstraction of string formulas (in a CEGAR-style loop), and refines as necessary. Second, we present another novel CDCL(T)-style algorithm that combines length abstraction and a bit-vector model construction method with the previously known arrangement technique for solving string formulas. Third, we present the algorithm selection architecture of Z3str4 which leverages four different solvers (arms), namely, the above-mentioned length abstraction solver, two versions of the above-mentioned arrangement solver, and the Z3 sequence solver. We perform extensive empirical evaluation over 16 different industrial and randomly-generated benchmarks with over 60,000 instances in them, and show Z3str4 outperforms previous best solvers, namely, CVC4, Z3 sequence solver, and the baseline Z3str3 on 13 of the 16 benchmarks. On the basis of total runtime over all 16 benchmarks, Z3str4 is competitive with CVC4 and significantly better than Z3 sequence and baseline Z3str3 solvers.
 
 == Using the Z3str4
-We are providing a GIT Repository containing the needed sources to reproduce our results. It contains:
+This website walks you through the basics of our new string solver Z3str4. We share the following components presented in our corresponding paper:
 
 1. Source code
 
 2. Benchmark suite
-
-3. This document
 
 === Compiling Z3str4
 
