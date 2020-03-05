@@ -10,7 +10,9 @@ This website walks you through the basics of our new string solver Z3str4. We sh
 
 1. Source code
 
-2. Benchmark suite
+2. Benchmark suite (Benchmarks included) - https://z3str4.github.io/zaligVinder.tar.gz[Download]
+
+3. All Benchmark tracks - https://z3str4.github.io/benchmarks.tar.gz[Download]
 
 === Compiling Z3str4
 
