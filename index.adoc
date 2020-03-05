@@ -56,7 +56,7 @@ sat
 )
 ----
 
-=== Using the different arms of Z3str4
+=== Trying the different features of Z3str4
 The following information is given inside the help command of Z3str4. The selection corresponds to the newly added parameters directly related to our presented work. The following parameters require the choice of using Z3str3 as the main solver for string constraints. Simply pass `smt.string_solver=z3str3` to your binary to enable it.
 
 ==== Using the different arms separately
