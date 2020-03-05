@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="author" content="A Multi-armed String Solver">
+<title>Z3str4:</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" type="text/css" href="ascii.css">
+<link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Z3str4:</h1>
+<div class="details">
+<span id="author" class="author">A Multi-armed String Solver</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_using_the_z3str4">Using the Z3str4</a>
+<ul class="sectlevel2">
+<li><a href="#_compiling_z3str4">Compiling Z3str4</a></li>
+<li><a href="#_running_z3str4">Running Z3str4:</a></li>
+<li><a href="#_simple_example">Simple Example</a></li>
+<li><a href="#_using_the_different_arms_of_z3str4">Using the different arms of Z3str4</a></li>
+</ul>
+</li>
+<li><a href="#_benchmarks">Benchmarks</a>
+<ul class="sectlevel2">
+<li><a href="#_competing_string_solvers">Competing string solvers</a></li>
+<li><a href="#_running_the_benchmarks">Running the Benchmarks</a></li>
+<li><a href="#_a_detailed_view_on_the_benchmarks">A detailed view on the benchmarks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>We present a set of novel algorithms and optimization heuristics  implemented as part of a new solver, we call Z3str4, for a rich quantifier-free first-order theory of string equations, related functions (e.g., concat and replace) and predicates (e.g., contains), linear arithmetic over string lengths, and (in)equalities over integers. The key insights underlying our solver are threefold. First, we present a novel length abstraction solver that performs a linear arithmetic abstraction of string formulas (in a CEGAR-style loop), and refines as necessary. Second, we present another novel CDCL(T)-style algorithm that combines length abstraction and a bit-vector model construction method with the previously known arrangement technique for solving string formulas. Third, we present the algorithm selection architecture of Z3str4 which leverages four different solvers (arms), namely, the above-mentioned length abstraction solver, two versions of the above-mentioned arrangement solver, and the Z3 sequence solver. We perform extensive empirical evaluation over 16 different industrial and randomly-generated benchmarks with over 60,000 instances in them, and show Z3str4 outperforms previous best solvers, namely, CVC4, Z3 sequence solver, and the baseline Z3str3 on 13 of the 16 benchmarks. On the basis of total runtime over all 16 benchmarks, Z3str4 is competitive with CVC4 and significantly better than Z3 sequence and baseline Z3str3 solvers.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_the_z3str4">Using the Z3str4</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We are providing a GIT Repository containing the needed sources to reproduce our results. It contains:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Source code</p>
+</li>
+<li>
+<p>Benchmark suite</p>
+</li>
+<li>
+<p>This document</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="_compiling_z3str4">Compiling Z3str4</h3>
+<div class="paragraph">
+<p>Navigate to the z3str4 folder by <code>cd z3str4</code> and execute the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>mkdir build</code></p>
+</li>
+<li>
+<p><code>cd build</code></p>
+</li>
+<li>
+<p><code>cmake -DCMAKE_BUILD_TYPE=Release ..</code></p>
+</li>
+<li>
+<p><code>make -j4</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Now Z3str4 is compiled and setup for the benchmark tool.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_z3str4">Running Z3str4:</h3>
+<div class="paragraph">
+<p>Z3str4 is invoked from the command line with <code>./z3 smt.string_solver=z3str3 dump_models=true  inputFile.smt</code> where <code>inputFile.smt</code> is the configuration file for Z3str4, the parameter <code>smt.string_solver</code> selects our theory, and <code>dump_models</code> asks Z3 to produce the found model.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_simple_example">Simple Example</h3>
+<div class="paragraph">
+<p>Using Z3str4 to solve the string constraint <code>x0 = x1x2</code> and <code>x0 = solution</code> is as simple as providing the below configuration file to Z3str4.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(set-logic QF_S)
+(declare-fun x0 () String)
+(declare-fun x1 () String)
+(declare-fun x2 () String)
+(assert (= x0 (Concat x1 x2)))
+(assert (= x0 "solution"))
+(check-sat)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As can be seen from the output below, Z3str4 finds a solution to the equation where it sets <code>x0 = solution</code>, <code>x1</code> and <code>x2</code> are set to the empty string.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sat
+(model
+(define-fun x0 () String
+"solution")
+(define-fun x1 () String
+"")
+(define-fun x2 () String
+"")
+)</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_the_different_arms_of_z3str4">Using the different arms of Z3str4</h3>
+<div class="paragraph">
+<p>The following information is given inside the help command of Z3str4. The selection corresponds to the newly added parameters directly related to our presented work. The following parameters require the choice of using Z3str3 as the main solver for string constraints. Simply pass <code>smt.string_solver=z3str3</code> to your binary to enable it.</p>
+</div>
+<div class="sect3">
+<h4 id="_using_the_different_arms_separately">Using the different arms separately</h4>
+<div class="listingblock">
+<div class="content">
+<pre>str.tactic (unsigned int)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bypass tactic selection for testing purposes (Z3str3 only) 0 - all tactics, 1 - length abstraction, 2 - arrangement solver (default: 0)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configuration_of_the_length_abstraction_solver_arm">Configuration of the length abstraction solver arm</h4>
+<div class="listingblock">
+<div class="content">
+<pre>str.fixed_length_iterations (unsigned int)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Maximum number of attempts to try preprocessing (Z3str3 only) (default: 1000)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configuration_of_the_sequence_solver_arm">Configuration of the sequence solver arm</h4>
+<div class="listingblock">
+<div class="content">
+<pre>str.pre_milliseconds (unsigned int)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Number milliseconds to try sequence solver for disjunctive queries (Z3str3 only) (default: 1000)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_the_overlaps_feature">Using the overlaps feature</h4>
+<div class="listingblock">
+<div class="content">
+<pre>str.search_overlaps (bool)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Continue searching when overlapping variables are detected instead of skipping the branch and returning UNKNOWN (Z3str3 only) (default: true)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>str.search_overlaps_milliseconds (unsigned int)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>number of milliseconds to try searching overlaps with the arrangement solver (Z3str3 only) (default: 5000)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_the_constraint_sharing_between_arms">Using the constraint sharing between arms</h4>
+<div class="listingblock">
+<div class="content">
+<pre>str.share_constraints (bool)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Enable constraint sharing across tactics (Z3str3 only, has no effect outside of portfolio tactic) (default: true)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_benchmarks">Benchmarks</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_competing_string_solvers">Competing string solvers</h3>
+<div class="paragraph">
+<p>As describe in the corresponding paper we are comparing our approach against <a href="https://github.com/Z3Prover/z3">Z3Seq</a>, <a href="https://sites.google.com/site/z3strsolver/">Z3Str3</a>, and <a href="https://cvc4.github.io">CVC4</a>.</p>
+</div>
+<div class="paragraph">
+<p>The Z3 theorem prover  is a DPLL(T)-based SMT solver for theory combinations
+over first-order logic. Z3 includes an arithmetic solver for linear integer arithmetic
+and a sequence solver (Z3Seq) that supports word-based reasoning about strings.</p>
+</div>
+<div class="paragraph">
+<p>The Z3str3 solver is based on Z3. It uses a reduction known as the arrangement technique to convert word equations into simpler
+formulas until a "solved form" is reached.</p>
+</div>
+<div class="paragraph">
+<p>The CVC4 solver handles constraints over the theory of strings and arithmetic
+using an algebraic approach, and uses a similar DPLL(T) architecture to Z3.</p>
+</div>
+<div class="paragraph">
+<p>Within the comparison we used CVC4&#8217;s binary version 1.7 which is available at <a href="https://github.com/CVC4/CVC4/releases/download/1.7/cvc4-1.7-x86_64-linux-opt">here</a>. The sequence solver and Z3str3 were pulled from their official <a href="https://github.com/Z3Prover/z3">GIT repository</a>. To reproduce our results you have to compile the commit <a href="https://github.com/Z3Prover/z3/commit/153d0661fe65247d0004bd4577ca851848ca4729">#153d0661fe65247d0004bd4577ca851848ca4729</a> using the same steps as described above for Z3str4.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_benchmarks">Running the Benchmarks</h3>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+This benchmark tool was tested on Python 3.7.6.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Navigate to the benchmarks folder by <code>cd wordbenchmarks</code> and execute the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Modify the <code>toolconfig.json</code> according to your filepaths:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+"Binaries" : {
+		"Z3str4" : {
+			"path" : "../tools/Z3str4/z3"
+		},
+		"Z3" : {
+			"path" : "../tools/z3/z3"
+		},
+		"cvc4" : {
+			"path" : "../tools/cvc4/cvc4"
+		}
+	}
+}</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Install the python3 libs matplotlib, tabulate and npyscreen by executing:</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><code>pip3 install matplotlib tabulate npyscreen</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>Start the benchmark run by executing</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><code>python3 z3str4run</code></p>
+</div>
+<div class="paragraph">
+<p>Once the benchmark run finished, the tool automatically starts a webserver on your local machine. You can browse the results by visiting the URL <a href="http://localhost:8081" class="bare">http://localhost:8081</a>.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="benchmarkGUI.png" alt="GUI Screenshot">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_a_detailed_view_on_the_benchmarks">A detailed view on the benchmarks</h3>
+
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-03-05 13:27:02 +0100
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>
