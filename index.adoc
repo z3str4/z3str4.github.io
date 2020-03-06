@@ -1,12 +1,12 @@
-= Z3str4:
+= Z3str4
 A Multi-armed String Solver
 :toc: left
 :stem:
 
-We present a set of novel algorithms and optimization heuristics  implemented as part of a new solver, we call Z3str4, for a rich quantifier-free first-order theory of string equations, related functions (e.g., concat and replace) and predicates (e.g., contains), linear arithmetic over string lengths, and (in)equalities over integers. The key insights underlying our solver are threefold. First, we present a novel length abstraction solver that performs a linear arithmetic abstraction of string formulas (in a CEGAR-style loop), and refines as necessary. Second, we present another novel CDCL(T)-style algorithm that combines length abstraction and a bit-vector model construction method with the previously known arrangement technique for solving string formulas. Third, we present the algorithm selection architecture of Z3str4 which leverages four different solvers (arms), namely, the above-mentioned length abstraction solver, two versions of the above-mentioned arrangement solver, and the Z3 sequence solver. We perform extensive empirical evaluation over 16 different industrial and randomly-generated benchmarks with over 60,000 instances in them, and show Z3str4 outperforms previous best solvers, namely, CVC4, Z3 sequence solver, and the baseline Z3str3 on 13 of the 16 benchmarks. On the basis of total runtime over all 16 benchmarks, Z3str4 is competitive with CVC4 and significantly better than Z3 sequence and baseline Z3str3 solvers.
+Z3str4 is an SMT solver for the SMT-LIB theory of strings based on Z3. The solver includes two new algorithms for string solving: a length abstraction algorithm and an abstraction-refinement reduction to bit-vectors. Z3str4 also includes an algorithm selection architecture which chooses the best algorithms to run based on their expected performance on the input. This page contains information on downloading and using Z3str4, as well as the results of an extensive experimental evaluation against other leading string solvers.
 
 == Z3str4 String Solver
-This website walks you through the basics of our new string solver Z3str4. We share the following components presented in our corresponding paper:
+This website consists of supplementary material to our paper (currently under submission). We share the following components presented in our corresponding paper:
 
 1. Source code
 
@@ -29,10 +29,10 @@ Navigate to the z3str4 folder by `cd z3str4` and execute the following steps:
 Now Z3str4 is compiled and setup for the benchmark tool.
 
 === Running Z3str4:
-Z3str4 is invoked from the command line with `./z3 smt.string_solver=z3str3 dump_models=true  inputFile.smt` where `inputFile.smt` is the configuration file for Z3str4, the parameter `smt.string_solver` selects our theory, and `dump_models` asks Z3 to produce the found model.
+Z3str4 is invoked from the command line with `./z3 smt.string_solver=z3str3 dump_models=true  inputFile.smt` where `inputFile.smt` is the desired SMT-LIB instance, the parameter `smt.string_solver` selects our theory, and `dump_models` asks Z3 to output the found model (if it answers SAT).
 
 === Simple Example
-Using Z3str4 to solve the string constraint `x0 = x1x2` and `x0 = solution` is as simple as providing the below configuration file to Z3str4.
+Using Z3str4 to solve the string constraint `x0 = x1 . x2` and `x0 = solution` is as simple as providing the instance below to Z3str4.
 
 ----
 (set-logic QF_S)
@@ -44,7 +44,7 @@ Using Z3str4 to solve the string constraint `x0 = x1x2` and `x0 = solution` is a
 (check-sat)
 ----
 
-As can be seen from the output below, Z3str4 finds a solution to the equation where it sets `x0 = solution`, `x1` and `x2` are set to the empty string.
+As can be seen from the output below, Z3str4 finds a solution to the equation where it sets `x0 = solution`, and `x1` and `x2` are set to the empty string.
 
 ----
 sat
@@ -61,13 +61,13 @@ sat
 === Trying the different features of Z3str4
 The following information is given inside the help command of Z3str4. The selection corresponds to the newly added parameters directly related to our presented work. The following parameters require the choice of using Z3str3 as the main solver for string constraints. Simply pass `smt.string_solver=z3str3` to your binary to enable it.
 
-==== Using the different arms separately
+==== Using algorithms in isolation
 
 ----
 str.tactic (unsigned int)
 ----
 
-Bypass tactic selection for testing purposes (Z3str3 only) 0 - all tactics, 1 - length abstraction, 2 - arrangement solver (default: 0)
+This option changes which algorithms are used. 0 - all algorithms, 1 - length abstraction, 2 - arrangement solver (default: 0)
 
 ==== Configuration of the length abstraction solver arm
 
@@ -75,7 +75,7 @@ Bypass tactic selection for testing purposes (Z3str3 only) 0 - all tactics, 1 - 
 str.fixed_length_iterations (unsigned int)
 ----
 
-Maximum number of attempts to try preprocessing (Z3str3 only) (default: 1000)
+Maximum number of attempts to try for the length abstraction solver 
 
 ==== Configuration of the sequence solver arm
 
