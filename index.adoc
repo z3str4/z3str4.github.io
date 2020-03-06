@@ -172,7 +172,6 @@ image::benchmarkGUI.png[GUI Screenshot]
 
 All tests were performed on a server running Ubuntu 18.04.3 LTS with 2 Intel Xeon Gold 6242 CPUs each having 16 cores and 1.5 TB of memory.
 
-
 === PyEx
 
 
@@ -181,7 +180,7 @@ image::img/pyex.png[cactus]
 
 |===
 |Tool name |Correctly classified  |Declared satisfiable |Declared unsatisfiable |Declared unknown |Error |Program crashes| Timeout |Total instances |Total time |Total time w/o TO
-|Z3seq|7750|6404|1366|0|20|0|644|8414.00|19764.624465656467|6884.62
+|Z3seq|7745|6404|1366|0|25|0|644|8414.00|19764.624465656467|6884.62
 |Z3str3|3015|1675|1343|214|3|211|5182|8414.00|108451.727125871|4811.73
 |CVC4|7562|6205|1357|0|0|0|852|8414.00|24620.90423851181|7580.90
 |Z3str4|7410|6048|1362|27|0|23|977|8414.00|22205.029225625098|2665.03
@@ -189,7 +188,7 @@ image::img/pyex.png[cactus]
 
 [NOTE]
 ====
-Best solver of this benchmark set Z3seq classified 7750 instances in 19764.624465656467s.
+Best solver of this benchmark set Z3seq classified 7745 instances in 19764.624465656467s.
 ==== 
 
 === Pisa
@@ -486,7 +485,7 @@ image::img/total.png[cactus]
 
 |===
 |Tool name |Correctly classified  |Declared satisfiable |Declared unsatisfiable |Declared unknown |Error |Program crashes| Timeout |Total instances |Total time |Total time w/o TO
-|Z3seq|58506|42650|15898|113|42|0|3976|62637.00|94032.27875954099|14512.28
+|Z3seq|58501|42650|15898|113|47|0|3976|62637.00|94032.27875954099|14512.28
 |Z3str3|55052|39236|15829|720|13|213|6852|62637.00|146604.76031396538|9564.76
 |CVC4|60885|44652|16234|0|1|0|1751|62637.00|52425.55138215702|17405.55
 |Z3str4|60383|44193|16190|202|0|25|2052|62637.00|56907.643710518256|15867.64
