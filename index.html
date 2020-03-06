@@ -462,10 +462,26 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_availability">Availability</a></li>
 </ul>
 </li>
-<li><a href="#_benchmarks">Benchmarks</a>
+<li><a href="#_reproduction_of_our_results">Reproduction of our Results</a></li>
+<li><a href="#_a_detailed_view_on_our_results">A detailed view on our Results</a>
 <ul class="sectlevel2">
-<li><a href="#_running_the_benchmarks">Running the Benchmarks</a></li>
-<li><a href="#_a_detailed_view_on_the_benchmarks">A detailed view on the benchmarks</a></li>
+<li><a href="#_pyex">PyEx</a></li>
+<li><a href="#_pisa">Pisa</a></li>
+<li><a href="#_norn">Norn</a></li>
+<li><a href="#_trau_light">Trau Light</a></li>
+<li><a href="#_leetcode_strings">Leetcode Strings</a></li>
+<li><a href="#_ibm_appscan">IBM Appscan</a></li>
+<li><a href="#_sloth">Sloth</a></li>
+<li><a href="#_woorpje_word_equations">Woorpje Word Equations</a></li>
+<li><a href="#_kaluza">Kaluza</a></li>
+<li><a href="#_stringfuzz">StringFuzz</a></li>
+<li><a href="#_z3str3_regression">z3Str3 Regression</a></li>
+<li><a href="#_cashew">Cashew</a></li>
+<li><a href="#_joaco">JOACO</a></li>
+<li><a href="#_stranger">Stranger</a></li>
+<li><a href="#_kausler">Kausler</a></li>
+<li><a href="#_banditfuzz">BanditFuzz</a></li>
+<li><a href="#_total">Total</a></li>
 </ul>
 </li>
 </ul>
@@ -670,10 +686,8 @@ using an algebraic approach, and uses a similar DPLL(T) architecture to Z3.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_benchmarks">Benchmarks</h2>
+<h2 id="_reproduction_of_our_results">Reproduction of our Results</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_running_the_benchmarks">Running the Benchmarks</h3>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -687,7 +701,7 @@ This benchmark tool was tested on Python 3.7.6.
 </table>
 </div>
 <div class="paragraph">
-<p>Navigate to the benchmarks folder by <code>cd wordbenchmarks</code> and execute the following steps:</p>
+<p>To reproduce our results presented in the paper navigate to the benchmarks folder by <code>cd wordbenchmarks</code> and execute the following steps:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -742,18 +756,1773 @@ This benchmark tool was tested on Python 3.7.6.
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_a_detailed_view_on_the_benchmarks">A detailed view on the benchmarks</h3>
+</div>
+<div class="sect1">
+<h2 id="_a_detailed_view_on_our_results">A detailed view on our Results</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>All tests were performed on a server running Ubuntu 18.04.3 LTS with 2 Intel Xeon Gold 6242 CPUs each having 16 cores and 1.5 TB of memory.</p>
 </div>
+<div class="sect2">
+<h3 id="_pyex">PyEx</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/pyex.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7750</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6404</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1366</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">644</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8414.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">19764.624465656467</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6884.62</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3015</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1675</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1343</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">214</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">211</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5182</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8414.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">108451.727125871</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4811.73</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7562</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6205</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1357</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">852</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8414.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">24620.90423851181</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7580.90</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7410</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6048</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1362</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">27</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">977</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8414.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22205.029225625098</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2665.03</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set Z3seq classified 7750 instances in 19764.624465656467s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pisa">Pisa</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/pisa.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.5085268253460526</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.51</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20.440567634999752</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.44</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.111461312510073</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.3947620401158929</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.39</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set Z3str4 classified 12 instances in 0.3947620401158929s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_norn">Norn</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/norn.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">631</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">527</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">104</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">356</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1027.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8667.501249474473</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1547.50</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">725</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">646</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">79</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">34</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">268</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1027.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5417.398601915687</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">57.40</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">841</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">655</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">186</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">186</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1027.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3824.4693173654377</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">104.47</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">715</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">616</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">99</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">39</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">273</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1027.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6434.981609395705</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">974.98</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set CVC4 classified 841 instances in 3824.4693173654377s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_trau_light">Trau Light</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/traulight.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">98</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">94</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">44.41716534923762</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.42</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">97</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">93</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">43.08289780002087</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.08</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">97</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">94</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">62.99438211880624</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.99</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">97</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">93</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">48.591934212483466</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8.59</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set Z3str3 classified 97 instances in 43.08289780002087s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_leetcode_strings">Leetcode Strings</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/leetcodestrings.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2644</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">881</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1785</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2666.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">96.57261982839555</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">96.57</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2411</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">626</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1785</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">153</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">102</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2666.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2343.0447438191622</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">303.04</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2665</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">880</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1785</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2666.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">302.7353911437094</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">282.74</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2665</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">880</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1785</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2666.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">76.83403500169516</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">76.83</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set Z3str4 classified 2665 instances in 76.83403500169516s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ibm_appscan">IBM Appscan</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/ibmappscan.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21.84341488685459</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.84</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100.11775264330208</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.12</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">36.73005310911685</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16.73</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">58.58092068042606</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18.58</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set Z3seq classified 7 instances in 21.84341488685459s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sloth">Sloth</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/sloth.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42.058595802634954</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.06</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">19</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">101.23511372692883</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">37</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60.88837200868875</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.89</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">34.71057705022395</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14.71</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set Z3str4 classified 23 instances in 34.71057705022395s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_woorpje_word_equations">Woorpje Word Equations</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/woorpjewordequations.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">699</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">535</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">164</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">110</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">809.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2499.12032032758</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">299.12</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">670</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">507</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">115</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">809.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2459.4978417549282</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">159.50</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">699</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">537</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">163</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">109</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">809.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2330.339424391277</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">150.34</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">722</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">558</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">164</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">809.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1743.6630762815475</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">143.66</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set Z3str4 classified 722 instances in 1743.6630762815475s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kaluza">Kaluza</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/kaluza.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">44915</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">33116</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11799</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2369</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">47284.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">52016.070272464305</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4636.07</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">46224</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">34425</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11799</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">224</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">836</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">47284.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20398.514478715137</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3678.51</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">46946</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">34932</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12014</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">338</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">47284.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15289.533664392307</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8529.53</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">46620</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">34617</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12003</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">614</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">47284.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21981.995113225654</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9702.00</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set CVC4 classified 46946 instances in 15289.533664392307s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stringfuzz">StringFuzz</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/stringfuzz.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">597</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">397</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">200</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">468</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1065.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10019.852157360874</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">659.85</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">776</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">593</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">183</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">285</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1065.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6036.293701956049</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">336.29</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">879</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">621</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">258</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">186</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1065.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4083.968703418039</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">363.97</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1012</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">714</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">298</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1065.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2762.429431346245</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1702.43</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set Z3str4 classified 1012 instances in 2762.429431346245s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_z3str3_regression">z3Str3 Regression</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/z3str3regression.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">242</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">197</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">45</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">243.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12.03635145444423</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12.04</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">237</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">194</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">43</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">243.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">107.99180989991874</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.99</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">227</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">183</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">44</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">243.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">326.0331924185157</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.03</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">242</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">197</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">45</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">243.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.517238111235201</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.52</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set Z3str4 classified 242 instances in 4.517238111235201s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cashew">Cashew</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/cashew.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">388</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">376</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">394.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">174.43052376806736</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">54.43</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">394</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">382</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">394.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30.923583981581032</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30.92</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">378</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">366</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">394.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">352.78678010590374</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32.79</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">394</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">382</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">394.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">56.27369636762887</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">56.27</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set Z3str3 classified 394 instances in 30.923583981581032s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_joaco">JOACO</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/joaco.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">57</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">94.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">271.23769912309945</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">171.24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">37</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">57</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">94.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.769204800017178</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.77</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">78</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">57</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">94.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">322.85813359357417</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.86</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">37</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">57</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">94.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">87.4218874508515</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">87.42</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set Z3str3 classified 37 instances in 3.769204800017178s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stranger">Stranger</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/stranger.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">34.70068748947233</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">34.70</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.25243187230080366</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.25</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.00</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20.390589385293424</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20.39</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set Z3str3 classified 4 instances in 0.25243187230080366s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kausler">Kausler</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/kausler.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">118</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">118</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">120.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">69.9316820576787</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">29.93</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">118</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">118</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">120.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">150.52100761141628</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">110.52</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">120</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">120</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">120.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">58.962984412908554</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">58.96</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">81</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">81</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">39</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">120.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1127.2833331413567</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">347.28</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set CVC4 classified 120 instances in 58.962984412908554s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_banditfuzz">BanditFuzz</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/banditfuzz.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">346</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">293</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">357.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">297.37302767205983</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">77.37</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">311</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">287</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">44</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">357.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">939.9494499629363</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">59.95</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">337</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">57</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">280</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">357.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">670.2352838544175</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">270.24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">345</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">52</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">293</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">357.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">264.54628120269626</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">44.55</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Best solver of this benchmark set Z3str4 classified 345 instances in 264.54628120269626s.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_total">Total</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/total.png" alt="cactus">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correctly classified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared satisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unsatisfiable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declared unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Program crashes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total time w/o TO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3seq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">58506</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42650</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15898</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">113</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">42</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3976</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">62637.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">94032.27875954099</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14512.28</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">55052</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">39236</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15829</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">720</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">213</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6852</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">62637.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">146604.76031396538</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9564.76</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CVC4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60885</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">44652</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16234</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1751</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">62637.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">52425.55138215702</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17405.55</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z3str4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60383</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">44193</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16190</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">202</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2052</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">62637.00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">56907.643710518256</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15867.64</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-03-05 18:00:00 +0100
+Last updated 2020-03-06 06:59:36 +0100
 </div>
 </div>
 <script type="text/x-mathjax-config">
