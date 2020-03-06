@@ -8,7 +8,7 @@ Z3str4 is an SMT solver for the SMT-LIB theory of strings based on Z3. The solve
 == Z3str4 String Solver
 This website consists of supplementary material to our paper (currently under submission). We share the following components presented in our corresponding paper:
 
-1. Source code
+1. Source code - https://z3str4.github.io/z3str4.tar.gz[Download]
 
 2. Benchmark suite (Benchmarks included) - https://z3str4.github.io/zaligVinder.tar.gz[Download]
 
@@ -16,7 +16,7 @@ This website consists of supplementary material to our paper (currently under su
 
 === Compiling Z3str4
 
-Navigate to the z3str4 folder by `cd z3str4` and execute the following steps:
+Untar our source code using `tar xf z3str4.tar.gz`. Navigate to the z3str4 folder by `cd z3str4` and execute the following steps:
 
 1. `mkdir build`
 
@@ -26,10 +26,10 @@ Navigate to the z3str4 folder by `cd z3str4` and execute the following steps:
 
 4. `make -j4`
 
-Now Z3str4 is compiled and setup for the benchmark tool.
+Now Z3str4 is compiled and ready to run.
 
 === Running Z3str4:
-Z3str4 is invoked from the command line with `./z3 smt.string_solver=z3str3 dump_models=true  inputFile.smt` where `inputFile.smt` is the desired SMT-LIB instance, the parameter `smt.string_solver` selects our theory, and `dump_models` asks Z3 to output the found model (if it answers SAT).
+Z3str4 is invoked from the command line with `./z3 dump_models=true  inputFile.smt` where `inputFile.smt` is the desired SMT-LIB instance, the parameter `dump_models` asks Z3 to output the found model (if it answers SAT).
 
 === Simple Example
 Using Z3str4 to solve the string constraint `x0 = x1 . x2` and `x0 = solution` is as simple as providing the instance below to Z3str4.
@@ -59,7 +59,7 @@ sat
 ----
 
 === Trying the different features of Z3str4
-The following information is given inside the help command of Z3str4. The selection corresponds to the newly added parameters directly related to our presented work. The following parameters require the choice of using Z3str3 as the main solver for string constraints. Simply pass `smt.string_solver=z3str3` to your binary to enable it.
+The following information is given inside the help command of Z3str4. The selection corresponds to the newly added parameters directly related to our presented work. The following parameters require the choice of using Z3str3 as the main solver for string constraints. Simply pass `smt.string_solver=z3str3` to your binary to enable it (default string solver is set to Z3str3 within the provided source code).
 
 ==== Using algorithms in isolation
 
@@ -141,13 +141,13 @@ To reproduce our results presented in the paper navigate to the benchmarks folde
 {
 "Binaries" : {
 		"Z3str4" : {
-			"path" : "../tools/Z3str4/z3"
+			"path" : "/home/user/tools/Z3str4/z3"
 		},
 		"Z3" : {
-			"path" : "../tools/z3/z3"
+			"path" : "/home/user/tools/z3/z3"
 		},
 		"cvc4" : {
-			"path" : "../tools/cvc4/cvc4"
+			"path" : "/home/user/tools/cvc4/cvc4"
 		}
 	}
 }
@@ -161,7 +161,7 @@ To reproduce our results presented in the paper navigate to the benchmarks folde
 [start=3]
 . Start the benchmark run by executing 
 
-`python3 z3str4run`
+`python3 z3str4run.py`
 
 Once the benchmark run finished, the tool automatically starts a webserver on your local machine. You can browse the results by visiting the URL http://localhost:8081.
 
