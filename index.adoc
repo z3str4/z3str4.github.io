@@ -103,7 +103,7 @@ The CVC4 solver handles constraints over the theory of strings and arithmetic
 using an algebraic approach, and uses a similar DPLL(T) architecture to Z3.
 
 === Availability
-Within the comparison we used CVC4's binary version 1.7 which is available at https://github.com/CVC4/CVC4/releases/download/1.7/cvc4-1.7-x86_64-linux-opt[here]. The sequence solver and Z3str3 were pulled from their official https://github.com/Z3Prover/z3[GIT repository]. To reproduce our results you have to compile the commit https://github.com/Z3Prover/z3/commit/153d0661fe65247d0004bd4577ca851848ca4729[#153d0661fe65247d0004bd4577ca851848ca4729] using the same steps as described above for Z3str4.
+Within the comparison we used CVC4's binary version 1.8 which is available at https://github.com/CVC4[here]. The sequence solver and Z3str3 were pulled from their official https://github.com/Z3Prover/z3[GIT repository]. To reproduce our results you have to compile the commit https://github.com/Z3Prover/z3/commit/7e7360dd0c04cdee95c3f74a59908209742c5212[#7e7360dd0c04cdee95c3f74a59908209742c5212] using the same steps as described above for Z3str4.
 
 
 == Reproduction of our Results
